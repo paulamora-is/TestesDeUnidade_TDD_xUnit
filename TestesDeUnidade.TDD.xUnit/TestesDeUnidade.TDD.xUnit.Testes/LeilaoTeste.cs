@@ -30,7 +30,7 @@ namespace TestesDeUnidade.TDD.xUnit.Testes
         }
 
         [Fact]
-        public void TerminarPregao_QuandoNãoExistirLances()
+        public void TerminarPregao_QuandoNaoExistirLances()
         {
             //Arrange
             var leilao = new Leilao("Vincent van Gogh");
