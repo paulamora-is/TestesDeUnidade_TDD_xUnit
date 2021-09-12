@@ -9,7 +9,7 @@ namespace TestesDeUnidade.TDD.xUnit.Testes
         [InlineData(1200, new double[] { 800, 900, 1000, 1200 })]
         [InlineData(1000, new double[] { 800, 500, 1000, 900 })]
         [InlineData(800, new double[] { 800 })]
-        public void TerminarPregao_QuandoLancesForemValoresEsperados(double valorEsperado,
+        public void TerminarPregao_RetornaMaiorValor_QuandoExistirNoMinimoUmLance(double valorEsperado,
             double[] valoresOfertados)
         {
             //Arrange
@@ -30,7 +30,7 @@ namespace TestesDeUnidade.TDD.xUnit.Testes
         }
 
         [Fact]
-        public void TerminarPregao_QuandoNaoExistirLances()
+        public void TerminarPregao_RetornaZero_QuandoNaoExistirLances()
         {
             //Arrange
             var leilao = new Leilao("Vincent van Gogh");
