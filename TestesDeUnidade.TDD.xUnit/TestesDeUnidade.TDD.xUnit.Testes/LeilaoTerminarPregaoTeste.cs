@@ -4,7 +4,7 @@ using Xunit;
 
 namespace TestesDeUnidade.TDD.xUnit.Testes
 {
-    public class LeilaoTeste
+    public class LeilaoTerminarPregaoTeste
     {
         [Theory]
         [InlineData(1200, new double[] { 800, 900, 1000, 1200 })]
@@ -15,6 +15,8 @@ namespace TestesDeUnidade.TDD.xUnit.Testes
         {
             //Arrange
             var leilao = new Leilao("Vincent van Gogh");
+            leilao.IniciarPregao();
+
             var cliente = new Cliente("cliente", leilao);
 
             foreach (var valor in valoresOfertados)
@@ -47,30 +49,6 @@ namespace TestesDeUnidade.TDD.xUnit.Testes
             Assert.Equal(valorExperado, valorObtido);
         }
 
-        [Theory]
-        [InlineData(3, new double[] { 800, 990, 1000 })]
-        public void TerminarPregao_NaoAceitaNovosLances_QuandoLeilaoFinalizado(
-            int lanceEsperado, double[] valoresOfertados)
-        {
-            //Arrange
-            var leilao = new Leilao("Vincent van Gogh");
-            var cliente = new Cliente("cliente", leilao);
-
-            foreach (var valor in valoresOfertados)
-            {
-                leilao.ReceberLance(cliente, valor);
-            }
-
-            leilao.TerminarPregao();
-
-            //Act
-            leilao.ReceberLance(cliente, 1000);
-
-            //Assert
-            var valorExperado = lanceEsperado;
-            var valorObtido = leilao.Lances.Count();
-            Assert.Equal(valorExperado, valorObtido);
-        }
-
+        
     }
 }

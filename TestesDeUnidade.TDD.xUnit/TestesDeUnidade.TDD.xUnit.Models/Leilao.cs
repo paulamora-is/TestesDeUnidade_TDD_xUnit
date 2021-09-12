@@ -13,7 +13,7 @@ namespace TestesDeUnidade.TDD.xUnit.Models
         {
             Peca = peca;
             _lances = new List<Lance>();
-            Estado = EstadoLeilao.LeilaoEmAndamento;
+            Estado = EstadoLeilao.LeilaoAntesDoPregao;
         }
 
         public string Peca { get; }
@@ -30,6 +30,7 @@ namespace TestesDeUnidade.TDD.xUnit.Models
 
         public void IniciarPregao()
         {
+            Estado = EstadoLeilao.LeilaoEmAndamento;
         }
 
         public void TerminarPregao()
