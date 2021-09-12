@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TestesDeUnidade.TDD.xUnit.Models.Enum;
 
 namespace TestesDeUnidade.TDD.xUnit.Models
 {
@@ -12,14 +13,19 @@ namespace TestesDeUnidade.TDD.xUnit.Models
         {
             Peca = peca;
             _lances = new List<Lance>();
+            Estado = EstadoLeilao.LeilaoEmAndamento;
         }
 
         public string Peca { get; }
         public Lance Ganhador { get; private set; }
+        public EstadoLeilao Estado { get; private set; }
 
         public void ReceberLance(Cliente cliente, double valor)
         {
-            _lances.Add(new Lance(cliente, valor));
+            if (Estado == EstadoLeilao.LeilaoEmAndamento)
+            {
+                _lances.Add(new Lance(cliente, valor));
+            }
         }
 
         public void IniciarPregao()
@@ -32,6 +38,8 @@ namespace TestesDeUnidade.TDD.xUnit.Models
                 .DefaultIfEmpty(new Lance(null, 0))
                 .OrderBy(l => l.Valor)
                 .LastOrDefault();
+
+            Estado = EstadoLeilao.LeilaoFinalizado;
         }
     }
 }
