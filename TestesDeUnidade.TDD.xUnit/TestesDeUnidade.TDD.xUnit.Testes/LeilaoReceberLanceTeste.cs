@@ -9,7 +9,7 @@ namespace TestesDeUnidade.TDD.xUnit.Testes
         [Theory]
         [InlineData(3, new double[] { 800, 990, 1000 })]
         [InlineData(4, new double[] { 800, 990, 1000, 1200 })]
-        public void RecebeLance_NaoAceitaNovosLances_QuandoLeilaoFinalizado(
+        public void ReceberLance_NaoAceitaNovosLances_QuandoLeilaoFinalizado(
             int lanceEsperado, double[] valoresOfertados)
         {
             //Arrange
