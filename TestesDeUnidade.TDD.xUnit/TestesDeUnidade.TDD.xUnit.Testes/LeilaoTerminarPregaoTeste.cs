@@ -48,7 +48,5 @@ namespace TestesDeUnidade.TDD.xUnit.Testes
             var valorObtido = leilao.Ganhador.Valor;
             Assert.Equal(valorExperado, valorObtido);
         }
-
-        
     }
 }
